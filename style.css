@@ -18,3 +18,17 @@ button {
 .text-center{
     text-align:center
 }
+
+.joke_paragraph {
+    text-align: center;
+    font-family: monaco;
+}
+.joke_categories{
+    text-align: center;
+    font-family: monaco;
+    font-size: 20px;
+    background:lightgray ;
+
+
+
+}
