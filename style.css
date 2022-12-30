@@ -20,8 +20,11 @@ button {
 }
 
 .joke_paragraph {
-    text-align: center;
     font-family: monaco;
+    text-decoration-line: underline;
+    font-size: 30px;
+    border: solid red 5px;
+   
 }
 .joke_categories{
     text-align: center;
