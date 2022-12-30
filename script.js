@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     //add eventListener to Click for Today's Joke button
     const form = document.querySelector(".form");
-    form.addEventListener('submit', (e)=>{
+    form.addEventListener('click', (e)=>{
         e.preventDefault();
        return joke();
     });
@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
    //Fetching Joke for API to be added as button response 
 function joke (){
     fetch(jokeAPI)
-    .then(res => res.json())
+    .then(res => res.text())
     .then((joke) => {
-        const p = document.querySelector(".joke-paragraph");
+        const p = document.querySelector(".joke_paragraph");
         p.textContent = joke;
     });
 }
