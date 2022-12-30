@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", ()=>{
-
+    //URL for the API for all Jokes in full text form
     const jokeAPI = "https://v2.jokeapi.dev/joke/Any?format=txt";
 
+    //add eventListener to Click for Today's Joke button
     const form = document.querySelector(".form");
     form.addEventListener('submit', (e)=>{
         e.preventDefault();
-       console.log(joke());
+       return joke();
     });
 
+   //Fetching Joke for API to be added as button response 
 function joke (){
     fetch(jokeAPI)
     .then(res => res.json())
