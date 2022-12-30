@@ -23,7 +23,7 @@ button {
     font-family: monaco;
     text-decoration-line: underline;
     font-size: 30px;
-    border: solid red 5px;
+    text-align: center;
    
 }
 .joke_categories{
@@ -31,7 +31,11 @@ button {
     font-family: monaco;
     font-size: 20px;
     background:lightgray ;
+}
 
-
-
+.joke_answer{
+    font-family: monaco;
+    font-size: 30px;
+    text-align: Center;
+    color: green;
 }
