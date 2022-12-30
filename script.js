@@ -25,41 +25,16 @@ function joke (){
 
 //fetching jokes for dropdown depending on the category 
 function dropdown() {
-    // get the selected category from the dropdown menu
-    const select = document.querySelector("#categories");
-    const selectedCategory = select.value;
-
-    // element to hold the additional jokes
-    const holder = document.querySelector(".additional_jokes");
-
-    // fetch jokes from the API
     fetch(allJokeAPI)
       .then((res) => res.json())
-      .then((jokes) => {
-        // check if jokes is an array or an object
-        if (Array.isArray(jokes)) {
-          // filter the jokes based on the selected category
-          const matchingJokes = jokes
-            .filter((joke) => joke.category === selectedCategory)
-            .slice(0, 10); // only display the first 10 jokes
-
-          // create a string with the setup and delivery of each joke
-          const jokesString = matchingJokes
-            .map((joke) => `${joke.setup} ${joke.delivery}`)
-            .join("\n");
-
-          // update textContent of holder element with the jokes string
-          holder.textContent = jokesString;
-        } else {
-          // if jokes is not an array, assume it's a single joke object
-          const joke = jokes;
-          const matchingJokes = [joke];
-
-          // create a string with the setup and delivery of the joke
-          const jokeString = `${joke.setup} ${joke.delivery}`;
-
-          // update textContent of holder element with the joke string
-          holder.textContent = jokeString;
+      .then((data) => {
+        const holder = document.querySelector(".additional_jokes");
+        holder.innerHTML = ""; // clear the paragraph's content
+        for (const joke of data.jokes) {
+          if (select.value === joke.category) {
+            holder.textContent = joke.setup + " " + joke.delivery;
+           
+          }
         }
       });
   }
@@ -68,5 +43,6 @@ function dropdown() {
   const select = document.querySelector("#categories");
   select.addEventListener("change", dropdown);
 });
+
    
 
