@@ -43,10 +43,12 @@ button {
 #categories{
     font-family: monaco;
     font-size: 20px;
+    background-color: lightblue;
 }
 .additional_jokes{
     font-family: monaco;
     font-size: 30px;
+    
 }
 
 label{
