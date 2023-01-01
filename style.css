@@ -3,6 +3,7 @@ h1 {
     font-size: 60px;
     color: black;
     font-family: monaco;
+    margin-bottom: 100px;
 }
 
 button {
@@ -13,6 +14,7 @@ button {
     font-size: 30px;
     background: red;
     border: black;
+    margin-bottom: 75px;
 
 }
 .text-center{
@@ -31,6 +33,8 @@ button {
     font-family: monaco;
     font-size: 20px;
     background:lightgray ;
+    margin-top: 200px;
+
 }
 
 .joke_answer{
@@ -38,6 +42,7 @@ button {
     font-size: 30px;
     text-align: Center;
     color: green;
+    
 }
 
 #categories{
@@ -48,6 +53,7 @@ button {
 .additional_jokes{
     font-family: monaco;
     font-size: 30px;
+    margin-top: 75px;
     
 }
 
