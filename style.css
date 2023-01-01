@@ -39,3 +39,17 @@ button {
     text-align: Center;
     color: green;
 }
+
+#categories{
+    font-family: monaco;
+    font-size: 20px;
+}
+.additional_jokes{
+    font-family: monaco;
+    font-size: 30px;
+}
+
+label{
+    font-family: monaco;
+    font-size: 20px;
+}
