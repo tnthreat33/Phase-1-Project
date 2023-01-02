@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     form.addEventListener('click', (e)=>{
         e.preventDefault();
        return joke();
+       form.disabled = true;
     });
 
    //Fetching Joke for API to be added as button response 
@@ -16,9 +17,15 @@ function joke (){
     .then(res => res.json())
     .then((joke) => {
         const p = document.querySelector(".joke_paragraph");
+        if(joke.type === "twopart"){
         p.textContent = joke.setup;
         const a = document.querySelector(".joke_answer");
         setTimeout(()=> {return  a.textContent = joke.delivery}, 5000 );
+        
+        } else {
+          p.textContent = joke.joke
+        }
+        
     });
 }
 
