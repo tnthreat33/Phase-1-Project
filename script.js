@@ -19,7 +19,6 @@ function joke (){
         p.textContent = joke.setup;
         const a = document.querySelector(".joke_answer");
         setTimeout(()=> {return  a.textContent = joke.delivery}, 5000 );
-        form.disabled = true;
     });
 }
 
@@ -31,9 +30,11 @@ function dropdown() {
         const holder = document.querySelector(".additional_jokes");
         holder.innerHTML = ""; // clear the paragraph's content
         for (const joke of data.jokes) {
-          if (select.value === joke.category) {
+          if (select.value === joke.category && joke.type === "twopart") {
             holder.textContent = joke.setup + " " + joke.delivery;
            
+          } else{
+            holder.textContent = "SORRY!! No jokes available for this selection. You can submit your own below."
           }
         }
       });
