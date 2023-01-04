@@ -6,7 +6,7 @@ h1 {
     margin-bottom: 100px;
 }
 
-button {
+.form{
     color: white;
     text-align: center;
     font-family: monaco;
@@ -43,6 +43,11 @@ button {
     text-align: Center;
     color: green;
     
+}
+.space{
+    font-family: monaco;
+    font-size: 20px;
+   
 }
 
 #categories{

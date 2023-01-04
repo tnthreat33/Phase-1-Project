@@ -24,9 +24,8 @@ function joke (){
           //display the joke
         p.textContent = joke.setup;
         //where to display the answer
-        const a = document.querySelector(".joke_answer");
-        //delay the answer for 5 seconds 
-        setTimeout(()=> {return  a.textContent = joke.delivery}, 5000 );
+        const answer = document.querySelector(".joke_answer");
+        setTimeout(()=> {return  answer.textContent = joke.delivery}, 5000 );
         
         } else {
           //if it is a one part joke
@@ -71,8 +70,35 @@ function dropdown() {
 const select = document.querySelector("#categories");
 select.addEventListener("change", dropdown);
 
+//search box function 
+function search(keyword) {
+  fetch(allJokeAPI)
+    .then((res) => res.json())
+    .then((data) => {
+      const holder = document.querySelector(".additional_jokes");
+      // clear the element's content
+      holder.innerHTML = ""; 
+      // convert the data object into an array
+      const jokesArray = Object.values(data);
+      // find the joke that matches the keyword
+      const joke = jokesArray.find((joke) => joke.setup.includes(keyword) || joke.delivery.includes(keyword));
+      // return the setup and delivery of the joke if found
+      if (joke) {
+        holder.textContent = joke.setup + " " + joke.delivery;
+      }
+      // return a message if the joke is not found
+      holder.textContent = "Sorry, no joke found with the keyword " + keyword;
+    });
+}
 
+// create event listener for search
+const searchBar = document.querySelector(".search_box")
+searchBar.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const keyword = event.target.value;
+  search(keyword);
 });
 
-   
+
+});
 
