@@ -13,16 +13,23 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
    //Fetching Joke for API to be added as button response 
 function joke (){
+  //fetch joke from API
     fetch(cleanJokeAPI)
     .then(res => res.json())
     .then((joke) => {
+      //select where it will be displayed 
         const p = document.querySelector(".joke_paragraph");
+        //if it is a two part joke 
         if(joke.type === "twopart"){
+          //display the joke
         p.textContent = joke.setup;
+        //where to display the answer
         const a = document.querySelector(".joke_answer");
+        //delay the answer for 5 seconds 
         setTimeout(()=> {return  a.textContent = joke.delivery}, 5000 );
         
         } else {
+          //if it is a one part joke
           p.textContent = joke.joke
         }
         
@@ -33,7 +40,6 @@ function joke (){
 function dropdown() {
   // fetch jokes from API
   fetch(allJokeAPI)
-    // parse the response as JSON
     .then((res) => res.json())
     .then((data) => {
       // select the element where the jokes will be displayed
