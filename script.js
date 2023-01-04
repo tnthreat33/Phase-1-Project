@@ -30,26 +30,31 @@ function joke (){
 }
 
 //fetching jokes for dropdown depending on the category 
-function dropdown() {
-    fetch(allJokeAPI)
-      .then((res) => res.json())
-      .then((data) => {
-        const holder = document.querySelector(".additional_jokes");
-        holder.innerHTML = ""; // clear the paragraph's content
-        for (const joke of data.jokes) {
-          if (select.value === joke.category && joke.type === "twopart") {
-            holder.textContent = joke.setup + " " + joke.delivery;
-           
-          } else{
-            holder.textContent = "SORRY!! No jokes available for this selection. You can submit your own below."
-          }
-        }
-      });
-  }
 
-  // create eventListener for dropdown
-  const select = document.querySelector("#categories");
-  select.addEventListener("change", dropdown);
+function dropdown() {
+  fetch(allJokeAPI)
+    .then((res) => res.json())
+    .then((data) => {
+      const holder = document.querySelector(".additional_jokes");
+      holder.innerHTML = ""; // clear the paragraph's content
+      for (const joke of data.jokes) {
+        if (select.value === joke.category && joke.type === "twopart") {
+          holder.textContent = joke.setup + " " + joke.delivery;
+         
+        } else if (select.value === joke.category && joke.type === "single"){
+          holder.textContent = joke.joke;
+        }
+      }
+    });
+}
+
+// create eventListener for dropdown
+const select = document.querySelector("#categories");
+select.addEventListener("change", dropdown);
+
+
+  
+
 });
 
    
