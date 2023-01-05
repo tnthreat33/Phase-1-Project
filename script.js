@@ -70,41 +70,6 @@ function dropdown() {
 const select = document.querySelector("#categories");
 select.addEventListener("change", dropdown);
 
-//search box function 
-function search(keyword) {
-  fetch(allJokeAPI)
-    .then((res) => res.json())
-    .then((data) => {
-      const holder = document.querySelector(".additional_jokes");
-      // clear the element's content
-      holder.innerHTML = ""; 
-      // convert the data object into an array
-      const jokesArray = Object.values(data);
-      // filter the jokes array to include only jokes with the keyword in the setup or delivery
-      const matchingJokes = jokesArray.filter((joke) => joke.setup && joke.delivery && (joke.setup.includes(keyword) || joke.delivery.includes(keyword)));
-      // return the setup and delivery of each matching joke
-      if (matchingJokes.length > 0) {
-        matchingJokes.forEach((joke) => {
-          holder.innerHTML += `${joke.setup} ${joke.delivery}<br>`;
-        });
-      } else {
-        // return a message if no jokes are found
-        holder.textContent = "Sorry, no jokes found with the keyword " + keyword;
-      }
-    });
-}
-
-
-// create event listener for search
-const searchInput = document.querySelector("#search");
-searchInput.addEventListener("input", (event) => {
-  // get the value of the input field
-  const keyword = event.target.value;
-  // call the search function with the keyword
-  search(keyword);
-});
-
-
 
 });
 

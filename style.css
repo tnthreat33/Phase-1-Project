@@ -1,3 +1,22 @@
+#top, #left, #right {
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 30px;
+		}
+		#left { left: 0; 
+            background: linear-gradient(to right, red,white);}
+		#right { right: 0; 
+            background: linear-gradient(to left, red,white);}
+		
+	#top {
+		left: 0; right: 0;
+		height: 30px;
+		}
+		#top { top: 0; 
+            background: linear-gradient( red,white);}
+
 h1 {
     text-align: center;
     font-size: 60px;
@@ -42,23 +61,29 @@ h1 {
     font-size: 30px;
     text-align: Center;
     color: green;
+
     
 }
 .space{
     font-family: monaco;
     font-size: 20px;
-   
+    
 }
+label{
+    margin-left: 100px;
+}
+
 
 #categories{
     font-family: monaco;
     font-size: 20px;
-    background-color: lightblue;
+   
 }
 .additional_jokes{
     font-family: monaco;
     font-size: 30px;
     margin-top: 75px;
+    margin-left: 100px
     
 }
 
