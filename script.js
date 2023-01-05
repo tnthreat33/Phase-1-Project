@@ -70,6 +70,5 @@ function dropdown() {
 const select = document.querySelector("#categories");
 select.addEventListener("change", dropdown);
 
-
 });
 
