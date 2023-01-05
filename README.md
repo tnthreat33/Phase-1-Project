@@ -6,4 +6,4 @@ FUNCTIONALITY
 This application used fetch to GET jokes from the JokesAPI (listed below). 
 
 API
-The API used is https://sv443.net/jokeapi/v2/#joke-type. This API includes over 1369 total jokes. In the application the joke of the day button pulls from vetted jokes that do not include nsfw, religious, political, racist, sexist, explicit. 
+The API used is https://sv443.net/jokeapi/v2/#joke-type.  In the application the joke of the day button pulls from vetted jokes that do not include nsfw, religious, political, racist, sexist, explicit. The dropdown and search box search through 10 jokes because this is the limit given by the API. 

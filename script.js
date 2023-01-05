@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const form = document.querySelector(".form");
     form.addEventListener('click', (e)=>{
         e.preventDefault();
-       return joke();
+       joke();
        form.disabled = true;
     });
 
@@ -80,24 +80,30 @@ function search(keyword) {
       holder.innerHTML = ""; 
       // convert the data object into an array
       const jokesArray = Object.values(data);
-      // find the joke that matches the keyword
-      const joke = jokesArray.find((joke) => joke.setup.includes(keyword) || joke.delivery.includes(keyword));
-      // return the setup and delivery of the joke if found
-      if (joke) {
-        holder.textContent = joke.setup + " " + joke.delivery;
+      // filter the jokes array to include only jokes with the keyword in the setup or delivery
+      const matchingJokes = jokesArray.filter((joke) => joke.setup && joke.delivery && (joke.setup.includes(keyword) || joke.delivery.includes(keyword)));
+      // return the setup and delivery of each matching joke
+      if (matchingJokes.length > 0) {
+        matchingJokes.forEach((joke) => {
+          holder.innerHTML += `${joke.setup} ${joke.delivery}<br>`;
+        });
+      } else {
+        // return a message if no jokes are found
+        holder.textContent = "Sorry, no jokes found with the keyword " + keyword;
       }
-      // return a message if the joke is not found
-      holder.textContent = "Sorry, no joke found with the keyword " + keyword;
     });
 }
 
+
 // create event listener for search
-const searchBar = document.querySelector(".search_box")
-searchBar.addEventListener("submit", (event) => {
-  event.preventDefault();
+const searchInput = document.querySelector("#search");
+searchInput.addEventListener("input", (event) => {
+  // get the value of the input field
   const keyword = event.target.value;
+  // call the search function with the keyword
   search(keyword);
 });
+
 
 
 });
