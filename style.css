@@ -45,6 +45,7 @@ h1 {
     text-decoration-line: underline;
     font-size: 30px;
     text-align: center;
+
    
 }
 .joke_categories{
@@ -53,6 +54,8 @@ h1 {
     font-size: 20px;
     background:lightgray ;
     margin-top: 200px;
+    margin-left: 100px;
+    margin-right: 100px
 
 }
 
@@ -61,6 +64,8 @@ h1 {
     font-size: 30px;
     text-align: Center;
     color: green;
+    margin-left: 100px;
+    margin-right: 100px
 
     
 }
